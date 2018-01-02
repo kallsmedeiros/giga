@@ -1,0 +1,85 @@
+AllCops:
+  DisplayCopNames: true
+  TargetRubyVersion: 2.3
+
+  Include:
+    - '**/Rakefile'
+    - '**/config.ru'
+    - '**/application.rb'
+    - '**/Rakefile'
+
+  Exclude:
+    # You could specify set of files or dirs while you want to be ignored by rubocop
+    - 'vendor/**/*'
+    - 'bin/*'
+    - 'Gemfile'
+    - 'Gemfile.lock'
+    - !ruby/regexp /old_and_unused\.rb$/
+    - 'app/controllers/api/v1/api_sessions_controller.rb'
+    - 'app/controllers/api/v1/api_controller.rb'
+    - 'app/controllers/users_controller.rb'
+    - 'app/controllers/application_controller.rb'
+    - 'app/controllers/session_transactions_controller.rb'
+    - 'lib/mercadolibre/*'
+
+Rails:
+  Enabled: true
+
+Metrics/LineLength:
+  Enabled: false
+
+Style/Documentation:
+  Enabled: false
+
+Rails/HasAndBelongsToMany:
+  Enabled: false
+
+Rails/NotNullColumn:
+  Enabled: false
+
+
+Metrics/MethodLength:
+  Exclude:
+    - 'app/controllers/*'
+    - 'app/routes/**/*'
+    - 'db/migrate/**/*'
+
+Metrics/BlockLength:
+  Exclude:
+    - 'app/routes/**/*'
+    - 'db/migrate/**/*'
+    - 'spec/**/*'
+    - 'config/routes.rb'
+
+Metrics/AbcSize:
+  Exclude:
+    - 'app/routes/**/*'
+    - 'db/migrate/**/*'
+
+Metrics/CyclomaticComplexity:
+  Exclude:
+    - 'db/migrate/**/*'
+
+Metrics/ClassLength:
+  Enabled: false
+
+Metrics/PerceivedComplexity:
+  Exclude:
+    - 'db/migrate/**/*'
+
+Style/FrozenStringLiteralComment:
+  Enable: false
+
+Lint/AmbiguousBlockAssociation:
+  Enabled: false
+
+Style/ClassAndModuleChildren:
+   Exclude:
+     - 'test/test_helper.rb'
+
+Rails/FilePath:
+  Exclude:
+    - 'config/environments/development.rb'
+
+Metrics/AbcSize:
+  Enabled: false

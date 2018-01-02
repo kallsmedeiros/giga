@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 Rails.application.routes.draw do
   resources :users, only: %i[index show destroy edit new] do
     collection do
