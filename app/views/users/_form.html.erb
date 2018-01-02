@@ -18,7 +18,7 @@
 
   <div class="field">
     <%= form.label :gender %>
-    <%= form.text_field :gender, id: :user_gender %>
+    <%= form.select(:gender, [['Female', "female"], ['Male', "male"]]) %>
   </div>
 
   <div class="field">

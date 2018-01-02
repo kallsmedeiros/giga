@@ -1,6 +1,15 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Users</h1>
+<h3><%= link_to 'Import Json', import_json_users_path %> </h3>
+
+<%= form_tag(search_users_path, method: "get") do %>
+  <p>
+    <i class="fa fa-search" aria-hidden="true"></i>
+    <%= text_field_tag(:search) %>
+    <%= submit_tag("search") %>
+  </p>
+<% end %>
 
 <table>
   <thead>
@@ -27,7 +36,7 @@
     <% end %>
   </tbody>
 </table>
-
 <br>
-
+<%= paginate @users %>
+<br>
 <%= link_to 'New User', new_user_path %>

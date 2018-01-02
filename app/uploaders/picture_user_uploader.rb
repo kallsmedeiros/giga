@@ -5,6 +5,11 @@ class PictureUserUploader < CarrierWave::Uploader::Base
   # Include RMagick or MiniMagick support:
   # include CarrierWave::RMagick
   # include CarrierWave::MiniMagick
+  include CarrierWave::RMagick
+
+  def thumb_url
+    url(:thumb)
+  end
 
   # Choose what kind of storage to use for this uploader:
   storage :postgresql_lo
@@ -32,9 +37,9 @@ class PictureUserUploader < CarrierWave::Uploader::Base
   # end
 
   # Create different versions of your uploaded files:
-  # version :thumb do
-  #   process :resize_to_fit => [50, 50]
-  # end
+   version :thumb do
+     process :resize_to_fit => [50, 50]
+   end
 
   # Add a white list of extensions which are allowed to be uploaded.
   # For images you might use something like this:
